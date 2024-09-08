@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+// import React, { createContext } from "react";
+// import Footer from "./Components/Footer";
+// export const login = createContext();
+// import Home from "./Components/Home";
+// function App() {
+//   return (
+//     <div>
+//       <login.Provider value="king">
+//         <Footer />
+//       </login.Provider>
+//       <Home/>
+//     </div>
+//   );
+// }
 
+// export default App;
+//USEREF
+// import React from 'react'
+// import Home from './Components/Home'
+// function App() {
+//   return (
+//     <div>
+//       <Home/>
+//     </div>
+//   )
+// }
+
+// export default App
+//routers
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./Components/Main";
+import Home from "./Components/Home";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Navbar from "./Components/Navbar";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+<Navbar/>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Header/:id" element={<Header />} />
+          <Route path="/Footer/:id" element={<Footer />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
